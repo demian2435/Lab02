@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 
 public class FXMLController {
 	
-	AlienDictionary dizionario = new AlienDictionary();
+	AlienDictionaryNew dizionario = new AlienDictionaryNew();
 
     @FXML
     private ResourceBundle resources;
@@ -41,8 +41,11 @@ public class FXMLController {
     	if(input.length > 1) {
     		dizionario.addWord(input[0], input[1]);
     	} else {
-    		String traduzione = dizionario.translateWord(input[0]);
-    		System.out.println(traduzione);
+    		String traduzione = "";
+    		for (String s : dizionario.translateWord(input[0])) {
+				traduzione += s + "\n";
+			}
+
     		txtArea.setText(traduzione);
     	}
     }
